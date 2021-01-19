@@ -44,10 +44,21 @@ win=Tk()
 win.title("Решение квадратного уравнения")
 win.geometry("500x500")
 
-def only_numbers(char):
-    return char.isdigit()
+def acceptNumber(inp):
+    if inp.isdigit():
+        return True
+    elif inp == "-":
+        return True
+    elif inp == ("."):
+        return True
+    else:
+        return False
 
-validation=win.register(only_numbers)
+
+
+validation = win.register(acceptNumber)
+
+
 
 img=PhotoImage(file="pilt.png")
 btn_image=Label(win,image=img)
@@ -56,9 +67,9 @@ lbl1=Label(win,text="Введите значения a, b, c: ",font="Arial 15")
 
 btn=Button(win,text="Решить",fg="red",bg="lightgrey",font="Arial 10",width=7)
 lbl=Label(win,text="0",fg="purple", font="Arial 11", height=3)
-a=Entry(win,text="Введите значение а: ",fg="red",bg="lightblue",font="Arial 15",width=3, validate="key", validatecommand=(validation, "%S"))
-b=Entry(win,text="Введите значение b: ",fg="red",bg="lightblue",font="Arial 15",width=3, validate="key", validatecommand=(validation, "%S"))
-c=Entry(win,text="Введите значение c: ",fg="red",bg="lightblue",font="Arial 15",width=3, validate="key", validatecommand=(validation, "%S"))
+a=Entry(win,text="Введите значение а: ",fg="red",bg="lightblue",font="Arial 15",width=3, validate="key", validatecommand=(validation, '%S'))
+b=Entry(win,text="Введите значение b: ",fg="red",bg="lightblue",font="Arial 15",width=3, validate="key", validatecommand=(validation, '%S'))
+c=Entry(win,text="Введите значение c: ",fg="red",bg="lightblue",font="Arial 15",width=3, validate="key", validatecommand=(validation, '%S'))
 
 btn_image.pack()
 lbl1.pack()
